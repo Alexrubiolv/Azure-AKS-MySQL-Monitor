@@ -1,11 +1,5 @@
 # Kubernetes Autoscaling Guide
 
-## Cluster Autoscaling
-
-Cluster autoscaler allows us to scale cluster nodes when they become full <br/>
-I would recommend to learn about scaling your cluster nodes before scaling pods. <br/>
-Video [here](https://youtu.be/jM36M39MA3I)
-
 ## Horizontal Pod Autoscaling
 
 HPA allows us to scale pods when their resource utilisation goes over a threshold <br/>
@@ -16,12 +10,11 @@ HPA allows us to scale pods when their resource utilisation goes over a threshol
 
 * For both autoscaling guides, we'll need a cluster. <br/>
 * For `Cluster Autoscaler` You need a cloud based cluster that supports the cluster autoscaler <br/>
-* For `HPA` We'll use [kind](http://kind.sigs.k8s.io/)
 
 ### Cluster Autoscaling - Creating an AKS Cluster
 
 ```
-# azure example
+# Azure AKS
 
 NAME=aks-getting-started
 RESOURCEGROUP=aks-getting-started
@@ -30,8 +23,8 @@ SERVICE_PRINCIPAL_SECRET=
 
 az aks create -n $NAME \
 --resource-group $RESOURCEGROUP \
---location australiaeast \
---kubernetes-version 1.16.10 \
+--location westeurope \
+--kubernetes-version 1.22.2 \
 --nodepool-name default \
 --node-count 1 \
 --node-vm-size Standard_F4s_v2  \
@@ -44,18 +37,10 @@ az aks create -n $NAME \
 --max-count 5
 ```
 
-### Horizontal Pod Autocaling - Creating a Kind Cluster
-
-My Node has 6 CPU cores for this demo <br/>
-
-```
-kind create cluster --name hpa --image kindest/node:v1.18.4
-```
-
 ### Metric Server
 
-* For `Cluster Autoscaler` - On cloud-based clusters, Metric server may already be installed. <br/>
-* For `HPA` - We're using kind
+* For `Cluster Autoscaler` - Azure clusters, Metric server may already be installed so just example. <br/>
+
 
 [Metric Server](https://github.com/kubernetes-sigs/metrics-server) provides container resource metrics for use in autoscaling pipelines <br/>
 
@@ -89,9 +74,9 @@ kubectl top nodes
 
 ```
 
-## Example Application
+## Example Application##
 
-For all autoscaling guides, we'll need a simple app, that generates some CPU load <br/>
+For all autoscaling test, we'll need a simple app, that generates some CPU load <br/>
 
 * Build the app
 * Push it to a registry
@@ -133,7 +118,7 @@ For Pod Autoscaling (HPA), continue</br>
 
 ## Generate some traffic
 
-Let's deploy a simple traffic generator pod
+Simple traffic generator pod
 
 ```
 cd kubernetes\autoscaling\components\application
