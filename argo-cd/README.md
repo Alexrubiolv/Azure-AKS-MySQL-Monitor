@@ -22,7 +22,7 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 
 
 ```
-# Documentation here: https://argo-cd.readthedocs.io/en/stable/ click the + New App button
+Documentation here: https://argo-cd.readthedocs.io/en/stable/ click the + New App button
 
 ```
 
