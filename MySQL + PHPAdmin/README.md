@@ -11,7 +11,7 @@
 ```
 # Resources & sidecars:
 
- # sidecar-mysql-monitoring (will fetch data every 30 seconds and you can acess via NodeIP)
+ # sidecar-mysql-monitoring #(Instead use some java app i decide use a sidecar app that will fetch data every 30 seconds and you can acess via NodeIP)
  # xtrabackup
  # My PhpAdmin
  
