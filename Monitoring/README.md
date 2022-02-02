@@ -14,3 +14,16 @@ kubectl apply -f ./Monitoring/
 # Wait resources get ready.
 
 ```
+```
+# Resources 
+
+Prometheus
+Grafana
+Alert-manager
+# Requirements:
+
+Prometheus operator
+
+
+```
+
