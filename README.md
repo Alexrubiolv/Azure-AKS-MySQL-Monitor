@@ -1,1 +1,0 @@
-# Azure-AKS-MySQL-Monitor
