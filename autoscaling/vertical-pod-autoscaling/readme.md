@@ -1,20 +1,11 @@
-# Vertical Pod Autoscaling
-
-## We need a Kubernetes cluster
-
-Lets create a Kubernetes cluster to play with using [kind](https://kind.sigs.k8s.io/docs/user/quick-start/)
-
-```
-kind create cluster --name vpa --image kindest/node:v1.19.1
-```
-<hr/>
+# Vertical Pod Autoscaling #
 
 ## Metric Server
 
 <br/>
 
 * For `Cluster Autoscaler` - On cloud-based clusters, Metric server may already be installed. <br/>
-* For `HPA` - We're using kind
+
 
 [Metric Server](https://github.com/kubernetes-sigs/metrics-server) provides container resource metrics for use in autoscaling pipelines <br/>
 
@@ -22,7 +13,7 @@ Because I run K8s `1.19` in `kind`, the Metric Server version i need is `0.3.7` 
 We will need to deploy Metric Server [0.3.7](https://github.com/kubernetes-sigs/metrics-server/releases/tag/v0.3.7) <br/>
 I used `components.yaml`from the release page link above. <br/>
 
-<b>Important Note</b> : For Demo clusters (like `kind`), you will need to disable TLS <br/>
+<b>Important Note</b> : For Demo clusters, you will need to disable TLS <br/>
 You can disable TLS by adding the following to the metrics-server container args <br/>
 
 <b>For production, make sure you remove the following :</b> <br/>
@@ -74,25 +65,6 @@ cd autoscaler/vertical-pod-autoscaler/
 # after few seconds, we can see the VPA components in:
 
 kubectl -n kube-system get pods
-```
-
-## Build and deploy example app
-
-```
-# build
-
-cd kubernetes\autoscaling\components\application
-docker build . -t aimvector/application-cpu:v1.0.0
-
-# push
-docker push aimvector/application-cpu:v1.0.0
-
-# deploy 
-kubectl apply -f deployment.yaml
-
-# metrics
-kubectl top pods
-
 ```
 
 ## Generate some traffic
