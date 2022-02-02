@@ -15,7 +15,7 @@ variable "ssh_key" {
 }
 
 variable "location" {
-  default = "australiaeast"
+  default = "westeurope"
 }
 
 variable "kubernetes_version" {
