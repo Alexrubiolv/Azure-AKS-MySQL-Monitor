@@ -9,7 +9,6 @@
 
 [Metric Server](https://github.com/kubernetes-sigs/metrics-server) provides container resource metrics for use in autoscaling pipelines <br/>
 
-Because I run K8s `1.19` in `kind`, the Metric Server version i need is `0.3.7` <br/>
 We will need to deploy Metric Server [0.3.7](https://github.com/kubernetes-sigs/metrics-server/releases/tag/v0.3.7) <br/>
 I used `components.yaml`from the release page link above. <br/>
 
