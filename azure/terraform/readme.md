@@ -80,7 +80,7 @@ SSH_KEY=$(cat ~/.ssh/id_rsa.pub)
 
 ## Terraform Azure Kubernetes Provider 
 
-Documentation on all the Kubernetes fields for terraform [here](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html)
+Documentation on all the Kubernetes fields for terraform
 
 ```
 terraform init
