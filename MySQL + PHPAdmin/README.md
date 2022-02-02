@@ -19,7 +19,10 @@
  ```
  Run:
  
+ kubectl create namespace mysql
  kubectl apply -f ./MySQL + PHPAdmin/
+ kubectl get namespace
+ 
  
  - Wait all resources get status ready ( take few minutes)
  
