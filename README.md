@@ -4,7 +4,7 @@
 
 ```
 # Run Azure CLI
-docker run -it --rm -v ${PWD}:/work -w /work --entrypoint /bin/sh mcr.microsoft.com/azure-cli:2.6.0
+docker run -it --rm -v ${PWD}:/work -w /work --entrypoint /bin/sh mcr.microsoft.com/azure-cli:2.33.0
 
 cd ./kubernetes/cloud/azure
 
@@ -28,7 +28,7 @@ az account set --subscription $SUBSCRIPTION
 
 ```
 RESOURCEGROUP=aks-getting-started
-az group create -n $RESOURCEGROUP -l australiaeast
+az group create -n $RESOURCEGROUP -l westeurope
 
 ```
 ## Create Service Principal
@@ -60,7 +60,7 @@ For extra reference you can also take a look at the Microsoft Docs: [here](https
 #full list of options
 
 az aks create --help
-az aks get-versions --location australiaeast -o table
+az aks get-versions --location westeurope -o table
 
 #generate SSH key
 
@@ -69,7 +69,7 @@ cp ~/.ssh/id_rsa* .
 
 az aks create -n aks-getting-started \
 --resource-group $RESOURCEGROUP \
---location australiaeast \
+--location westeurope \
 --kubernetes-version 1.16.10 \
 --load-balancer-sku standard \
 --nodepool-name default \
